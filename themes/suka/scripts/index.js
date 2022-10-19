@@ -5,7 +5,7 @@ require('../includes/tasks/welcome');
 // Check Hexo Version
 require('../includes/tasks/check_hexo')(hexo);
 // Check required dependencies
-require('../includes/tasks/check_deps');
+// require('../includes/tasks/check_deps');
 
 const logger = require('hexo-log')();
 logger.info('Loading Suka Theme Plugins');
