@@ -6,7 +6,7 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "suka": "cd ./themes/suka && npm install",
+    "suka": "cd ./themes/suka && npm install && cd ../../",
     "server": "hexo server"
   },
   "hexo": {
