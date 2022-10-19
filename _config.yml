@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
+title: 智慧农业概论
+subtitle: '主编：熊航 副主编：李道亮 吴文斌'
 description: ''
 keywords:
 author: John Doe
@@ -32,7 +32,7 @@ skip_render:
 
 # Writing
 new_post_name: :title.md # File name of new posts
-default_layout: post
+default_layout: page
 titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
@@ -97,8 +97,17 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: suka
 
+# Suka Theme config
+# Documents: https://theme-suka.skk.moe/docs/
+suka_theme:
+  search:
+    path: search.json
+    field: post # Page | Post | All. Default post
+  prism:
+    line_number: true
+    theme: default
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
