@@ -1,5 +1,6 @@
 {
-  "name": "hexo-site",
+  "name": "zhag",
+  "description": "智慧农业概论",
   "version": "0.0.0",
   "private": true,
   "scripts": {
