@@ -25,9 +25,10 @@ jobs:
         run: npm install
       - name: Install Theme Suka Dependencies
         run: |
-           pwd
-#          cd ./theme/suka
-#          npm install
+          pwd
+          ls
+          cd ./themes/suka
+          npm install
       - name: Build
         run: npm run build
       - name: Deploy
