@@ -23,8 +23,10 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Install Thema Suka Dependencies
-        run: npm run suka
+      - name: Install Theme Suka Dependencies
+        run: |
+          cd ./theme/suka
+          npm install
       - name: Build
         run: npm run build
       - name: Deploy
