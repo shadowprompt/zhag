@@ -34,11 +34,11 @@
 <% } %>
 <%  if (theme.showPostTimeFooter) { %>
     <p class="post-footer-info mb-0 pt-0"><%= __('post.posted') %>&nbsp;<time datetime="<%= date_xml(page.date) %>" itemprop="datePublished"><%= date(page.date, config.date_format) %></time>
+    <%  if (date(page.date, 'MMM DD, YYYY') !== date(page.updated, 'MMM DD, YYYY')) { %>
+        , <%= __('post.edited') %>&nbsp;<time datetime="<%= date_xml(page.updated) %>" itemprop="dateModified"><%= date(page.updated, config.date_format) %></time>
+    <% } %>
+    </p>
 <% } %>
-<%  if (date(page.date, 'MMM DD, YYYY') !== date(page.updated, 'MMM DD, YYYY')) { %>
-    , <%= __('post.edited') %>&nbsp;<time datetime="<%= date_xml(page.updated) %>" itemprop="dateModified"><%= date(page.updated, config.date_format) %></time>
-<% } %>
-</p>
 <p class="post-footer-info mb-0 pt-2">
 <% if (page.categories && page.categories.length) { %>
 <span class="post-categories-list mt-2">
