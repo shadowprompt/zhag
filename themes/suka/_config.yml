@@ -103,11 +103,11 @@ nav:
     首页:
       link: /
     教程简介:
-      link: /introduce/
+      link: /intro/
     学习资料:
-      link: /materials/
+      link: /slides/
     实践案例:
-      link: /case/
+      link: /cases/
     读者反馈:
       link: /feedback/
 
@@ -164,7 +164,7 @@ toc:
 # If you want to use gitment or gitalk, you should get the client_id and client_secret form https://github.com/settings/applications/new
 # If you want to use valine, you should get the app_id and app_key form https://leancloud.cn , more setting please see https://valine.js.org
 comment:
-  use: changyan
+  use: valine
   disqus:
     shortname: # disqus shortname
   disqusjs:
@@ -191,8 +191,8 @@ comment:
     client_id:
     client_secret:
   valine:
-    leancloud_appId:  # leancloud application app id
-    leancloud_appKey:  # leancloud application app key
+    leancloud_appId: n87e56Pd4vy8Mc5lBhD5zcI8-gzGzoHsz # leancloud application app id
+    leancloud_appKey: ewwupYEWGyfQU6FioTg6IhCQ # leancloud application app key
     notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
     verify: false # valine verify code (true/false)
     pageSize: 10 # comment list page size
