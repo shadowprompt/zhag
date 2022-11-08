@@ -1,7 +1,7 @@
 ---
 title: 首页
 comments: false
-showSlogan: true
+_showSlogan: true
 ---
 ![file](https://wp-img.daozhao.com.cn/zhag/zhag.webp)
 
