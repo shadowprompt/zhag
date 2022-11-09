@@ -40,7 +40,9 @@ html a:focus,
 html .btn:focus {
     box-shadow: none !important;
 }
-
+body {
+    padding-left: calc(100vw - 100%);
+}
 .card {
     /* Remove card border */
     border: none;
@@ -588,7 +590,7 @@ a.category-link {
 }
 
 #post-toc>ol {
-    margin-left: 2rem;
+    margin-left: 2.4rem;
     max-width: 8rem;
     position: fixed;
     z-index: 0;
