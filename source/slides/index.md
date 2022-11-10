@@ -13,7 +13,7 @@ date: 2022-10-26 09:23:04
 - 智慧农业概论-第六章-智能化植物工厂-202210 (pptx)   <a onclick="LA.track('download', {chapter06: true})" href="https://wp-img.daozhao.com.cn/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%99%BA%E8%83%BD%E5%8C%96%E6%A4%8D%E7%89%A9%E5%B7%A5%E5%8E%82-202210.pptx">下载地址</a>
 - 智慧农业概论-第七章-智慧畜牧-202210 (pptx)   <a onclick="LA.track('download', {chapter07: true})" href="https://wp-img.daozhao.com.cn/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7-202210.pptx">下载地址</a>
 - 智慧农业概论-第八章-智慧渔业-202210 (pptx)   <a onclick="LA.track('download', {chapter08: true})" href="https://wp-img.daozhao.com.cn/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%99%BA%E6%85%A7%E6%B8%94%E4%B8%9A-202210.pptx">下载地址</a>
-- 智慧农业概论-第九章-智慧农产品运营-202210 (pptx)   <a onclick="_hmt.push(['_trackEvent', 'download', 'click', 'chapter09'])" href="https://wp-img.daozhao.com.cn/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5-202210.pptx">下载地址</a>
+- 智慧农业概论-第九章-智慧农产品运营-202210 (pptx)   <a onclick="LA.track('download', {chapter09: true})" href="https://wp-img.daozhao.com.cn/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5-202210.pptx">下载地址</a>
 
 
 > - <span style="font-size: small; "> PPT制作者：全体编写人员</span>
