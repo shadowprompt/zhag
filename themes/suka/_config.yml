@@ -164,7 +164,7 @@ toc:
 # If you want to use gitment or gitalk, you should get the client_id and client_secret form https://github.com/settings/applications/new
 # If you want to use valine, you should get the app_id and app_key form https://leancloud.cn , more setting please see https://valine.js.org
 comment:
-  use: changyan
+  use: valine
   disqus:
     shortname: # disqus shortname
   disqusjs:
@@ -197,9 +197,10 @@ comment:
     verify: false # valine verify code (true/false)
     pageSize: 10 # comment list page size
     avatar: identicon # gravatar style https://valine.js.org/#/avatar
-    lang: zh-cn # i18n
+    lang: custom # i18n
     placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
-    guest_info: nick,mail,link #valine comment header info
+    guest_info: nick,link,mail #valine comment header info
+    requiredFields: nick,link
   wildfire:
     database_provider: firebase # firebase or wilddog
     wilddog_site_id:
