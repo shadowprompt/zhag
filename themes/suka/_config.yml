@@ -198,9 +198,9 @@ comment:
     pageSize: 10 # comment list page size
     avatar: identicon # gravatar style https://valine.js.org/#/avatar
     lang: custom # i18n
-    placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
-    guest_info: nick,link,mail #valine comment header info
-    requiredFields: nick,link
+    placeholder: 来点反馈吧 # valine comment input placeholder(like: Please leave your footprints )
+    guest_info: nick,link,mail #valine comment header info 昵称 工作单位 邮箱
+    requiredFields: nick
   wildfire:
     database_provider: firebase # firebase or wilddog
     wilddog_site_id:
