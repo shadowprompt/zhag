@@ -3,7 +3,7 @@ title: 首页
 comments: false
 _showSlogan: true
 ---
-![file](https://wp-img.daozhao.com.cn/zhag/zhag.webp)
+![file](https://wp-img.daozhao.com/zhag/zhag.webp)
 
 <div style="text-align: center;">普通高等教育农业农村部 “十三五” 规划教材</div>
 
