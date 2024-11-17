@@ -61,4 +61,4 @@ date: 2022-10-26 09:19:11
 <span style="display: inline-block;width: 32px;"></span>本书除了可以作为智慧农业专业本科生的专业基础课程的教材，以作为大专院校的本专科生的通识教材，研究生和其他科研人员的参考读物，以及具有一定专业知识的农业从业人员用于开阔视野的读物。
 
 ### 目录
-<a onclick="_zhagTrack('smart-toc')" href="https://wp-img.daozhao.com/zhag/智慧农业概论-目录.pdf">智慧农业概率-目录.pdf </a>
+<a onclick="_zhagTrack('smart-toc')" href="https://wp-img.daozhao.com/zhag/智慧农业概论-目录.pdf">智慧农业概论-目录.pdf </a>
