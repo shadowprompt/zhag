@@ -1,9 +1,9 @@
 comments: false
-title: 学习资料
+title: 配套课件
 date: 2022-10-26 09:23:04
 ---
 
-### 配套PPT课件
+### 《智慧农业概论》配套PPT
 <script>
     function _zhagTrack(id) {
        window.LA?.track('download', {[id]: new Date().toLocaleString()});
@@ -24,3 +24,7 @@ date: 2022-10-26 09:23:04
 > - <span style="font-size: small; "> PPT制作者：全体编写人员</span>
 > - <span style="font-size: small; "> PPT显示比例：宽屏16:9</span>
 > - <span style="font-size: small; "> PPT软件版本：Microsoft 365</span>
+
+
+### 《农业大数据》配套PPT
+制作中……

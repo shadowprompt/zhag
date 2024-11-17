@@ -102,10 +102,14 @@ nav:
   pages:
     首页:
       link: /
-    教程简介:
-      link: /intro/
-    学习资料:
+    智慧农业概论:
+      link: /smart/
+    农业大数据:
+      link: /bigdata/
+    配套课件:
       link: /slides/
+    参考资料:
+      link: /reference/
     实践案例:
       link: /cases/
     读者反馈:
@@ -150,7 +154,7 @@ post:
 # Table Of Contents which will be show on right side of the post
 toc:
   # You can still disable toc for each single post by setting their front-matter with 'toc: false'
-  enable: true
+  enable: false
   # Show line number for each toc list-item or not. Default is true.
   line_number: true
 
