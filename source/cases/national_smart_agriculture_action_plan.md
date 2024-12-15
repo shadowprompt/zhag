@@ -56,4 +56,4 @@ date: 2022-11-04 09:22:44
 
 （三）加强总结交流。及时总结工作进展和成效，推广典型经验和模式，编发智慧农业优秀案例集。建立智慧农业主推技术目录和信息发布制度，遴选发布智慧农业新技术新装备，促进技术供给与需求的有效衔接。召开智慧农业建设现场推进会，推动各地互学互鉴，以点带面整体提升。用好农业农村部官网、新媒体、中国国际农产品交易会等线上线下平台，充分展示智慧农业行动计划建设成果。加强智慧农业领域技术、人才、标准、经验等方面国际交流合作。
 
-来源[https://www.gov.cn/zhengce/zhengceku/202410/content_6983057.htm](https://www.gov.cn/zhengce/zhengceku/202410/content_6983057.htm)
+来源：[https://www.gov.cn/zhengce/zhengceku/202410/content_6983057.htm](https://www.gov.cn/zhengce/zhengceku/202410/content_6983057.htm)
