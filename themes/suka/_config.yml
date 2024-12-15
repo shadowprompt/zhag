@@ -74,7 +74,7 @@ uiux:
   # Muilt line slogan is supported.
   slogan: 主编：熊航 副主编：李道亮 吴文斌
   # For most link color except post color
-  link_color:
+  link_color: '#50596c'
   primary_color:
   # Background color
   bg_color:
@@ -110,7 +110,7 @@ nav:
       link: /slides/
     参考资料:
       link: /references/
-    实践案例:
+    案例动态:
       link: /cases/
     读者反馈:
       link: /feedback/
