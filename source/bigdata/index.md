@@ -4,6 +4,8 @@ date: 2022-10-26 09:19:11
 ---
 <p style="text-align: center;font-size: 24px;font-weight: 600;">《农业大数据》</p>
 
+教育部智慧农业专业“101计划” 核心教材
+
 ### 内容简介
 <span style="display: inline-block;width: 32px;"></span>本书在明确农业大数据基本含义特征的基础上，全面系统地阐述各类农业数据资源的获取、分析与应用，继而介绍各个农业产业和生产经营领域大数据的应用状况。
 
