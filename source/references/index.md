@@ -4,7 +4,7 @@ date: 2022-10-26 09:19:11
 ---
 
 ### 线上教学资源
-<a target="_blank" href="https://www.ilab-x.com/details/page?id=12963">虾稻共作农户绿色生产经营决策虚拟仿真实验</a>
+- <a target="_blank" href="https://www.ilab-x.com/details/page?id=12963">虾稻共作农户绿色生产经营决策虚拟仿真实验</a>
 
 ### 参考文献
 <script>
