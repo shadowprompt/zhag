@@ -23,7 +23,7 @@ date: 2022-10-26 09:19:11
 
 <span style="display: inline-block;width: 48px;"></span> 熊<span style="display: inline-block;width: 16px;"></span>涛（华中农业大学）
 
-**参编**（以姓氏笔画为序）
+**参<span style="display: inline-block;width: 16px;"></span>编**（以姓氏笔画为序）
 <span style="display: inline-block;width: 48px;"></span> 马<span style="display: inline-block;width: 16px;"></span>贺（大连海洋大学、浙江大学）
 
 <span style="display: inline-block;width: 48px;"></span> 冯晓龙（中国农业大学）
