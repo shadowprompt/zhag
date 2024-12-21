@@ -15,21 +15,37 @@ date: 2022-10-26 09:19:11
 
 
 ### 编写人员
-**主<span style="display: inline-block;width: 16px;"></span>编** 熊航（华中农业大学） 田旭（中国农业大学）
+**主<span style="display: inline-block;width: 16px;"></span>编** 熊<span style="display: inline-block;width: 16px;"></span>航（华中农业大学）
 
-**副主编** 林涛（浙江大学）</span><span style="display: inline-block;width: 16px;"></span><span style="display: inline-block;width: 16px;"></span> 熊涛（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 田<span style="display: inline-block;width: 16px;"></span>旭（中国农业大学）
 
-**参编人员**（以姓氏笔画为序）
-马<span style="display: inline-block;width: 16px;"></span>贺（大连海洋大学、浙江大学）
-冯晓龙（中国农业大学）
-吕佳乐（中国农业科学院植物保护研究所）
-李<span style="display: inline-block;width: 16px;"></span>林（华中农业大学）
-李<span style="display: inline-block;width: 16px;"></span>莉（中国农业大学）
-杨万能（华中农业大学）
-张晓恒（南京航空航天大学）
-周远飞（华中农业大学）
-胡<span style="display: inline-block;width: 16px;"></span>琼（华中师范大学）
-洪宪培（华中农业大学）
-黄<span style="display: inline-block;width: 16px;"></span>远（华中农业大学）
-黄新元（南京农业大学）
-麻志宏（浙江大学）
+**副主编** 林<span style="display: inline-block;width: 16px;"></span>涛（浙江大学）
+
+<span style="display: inline-block;width: 48px;"></span> 熊<span style="display: inline-block;width: 16px;"></span>涛（华中农业大学）
+
+**参编**（以姓氏笔画为序）
+<span style="display: inline-block;width: 48px;"></span> 马<span style="display: inline-block;width: 16px;"></span>贺（大连海洋大学、浙江大学）
+
+<span style="display: inline-block;width: 48px;"></span> 冯晓龙（中国农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 吕佳乐（中国农业科学院植物保护研究所）
+
+<span style="display: inline-block;width: 48px;"></span> 李<span style="display: inline-block;width: 16px;"></span>林（华中农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 李<span style="display: inline-block;width: 16px;"></span>莉（中国农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 杨万能（华中农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 张晓恒（南京航空航天大学）
+
+<span style="display: inline-block;width: 48px;"></span> 周远飞（华中农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 胡<span style="display: inline-block;width: 16px;"></span>琼（华中师范大学）
+
+<span style="display: inline-block;width: 48px;"></span> 洪宪培（华中农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 黄<span style="display: inline-block;width: 16px;"></span>远（华中农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 黄新元（南京农业大学）
+
+<span style="display: inline-block;width: 48px;"></span> 麻志宏（浙江大学）

@@ -23,31 +23,31 @@ date: 2022-10-26 09:19:11
 
 **副主编** 李道亮（中国农业大学） 
 
-<span style="display: inline-block;width: 52px;"></span>吴文斌（中国农业科学院农业资源与农业区划研究所）
+<span style="display: inline-block;width: 48px;"></span> 吴文斌（中国农业科学院农业资源与农业区划研究所）
 
 **参<span style="display: inline-block;width: 16px;"></span>编**（以姓氏笔画为序）
 
-<span style="display: inline-block;width: 52px;"></span>方亚平（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 方亚平（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>卢云帆（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 卢云帆（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>史<span style="display: inline-block;width: 16px;"></span>云（中国农业科学院农业资源与农业区划研究所）
+<span style="display: inline-block;width: 48px;"></span> 史<span style="display: inline-block;width: 16px;"></span>云（中国农业科学院农业资源与农业区划研究所）
 
-<span style="display: inline-block;width: 52px;"></span>刘<span style="display: inline-block;width: 16px;"></span>斌（西北农林科技大学）
+<span style="display: inline-block;width: 48px;"></span> 刘<span style="display: inline-block;width: 16px;"></span>斌（西北农林科技大学）
 
-<span style="display: inline-block;width: 52px;"></span>李晓慧（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 李晓慧（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>陈<span style="display: inline-block;width: 16px;"></span>琳（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 陈<span style="display: inline-block;width: 16px;"></span>琳（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>宋<span style="display: inline-block;width: 16px;"></span>茜（中国农业科学院农业资源与农业区划研究所）
+<span style="display: inline-block;width: 48px;"></span> 宋<span style="display: inline-block;width: 16px;"></span>茜（中国农业科学院农业资源与农业区划研究所）
 
-<span style="display: inline-block;width: 52px;"></span>倪福川（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 倪福川（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>凌<span style="display: inline-block;width: 16px;"></span>霖（上海海关学院）
+<span style="display: inline-block;width: 48px;"></span> 凌<span style="display: inline-block;width: 16px;"></span>霖（上海海关学院）
 
-<span style="display: inline-block;width: 52px;"></span>陶<span style="display: inline-block;width: 16px;"></span>慧（华中农业大学）
+<span style="display: inline-block;width: 48px;"></span> 陶<span style="display: inline-block;width: 16px;"></span>慧（华中农业大学）
 
-<span style="display: inline-block;width: 52px;"></span>程瑞锋（中国农业科学院农业环境与可持续发展研究所）
+<span style="display: inline-block;width: 48px;"></span> 程瑞锋（中国农业科学院农业环境与可持续发展研究所）
 
 ### 教材特点
 <span style="display: inline-block;width: 32px;"></span>作为一部规划教材， 本书系统性地介绍智慧农业的发展现状、核心技术及各个领域的应用情况。作为一本介绍前沿科技应用的通识性读物，它具有以下几个特点：
