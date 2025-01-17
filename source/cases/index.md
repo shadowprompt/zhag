@@ -5,6 +5,7 @@ date: 2024-12-14 09:22:44
 
 ### 实践案例
 - [全国首个商用无人水稻农场：佛山市高明区更合镇吉田村](/cases/unmanned_rice_farm)
+- [智能水肥一体化系统应用案例](/cases/smart_irrigation)
 
 ### 新闻动态
 - [全国智慧农业行动计划（2024—2028年）](/cases/national_smart_agriculture_action_plan)
