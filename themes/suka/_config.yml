@@ -197,6 +197,7 @@ comment:
   valine:
     leancloud_appId: n87e56Pd4vy8Mc5lBhD5zcI8-gzGzoHsz # leancloud application app id
     leancloud_appKey: ewwupYEWGyfQU6FioTg6IhCQ # leancloud application app key
+    leancloud_serverURLs: https://n87e56pd.lc-cn-n1-shared.com # leancloud application app serverURLs
     notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
     verify: false # valine verify code (true/false)
     pageSize: 10 # comment list page size
