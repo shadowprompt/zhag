@@ -1,4 +1,4 @@
-comments: false
+comments: true
 title: 配套课件
 date: 2022-10-26 09:23:04
 ---
@@ -77,5 +77,35 @@ date: 2022-10-26 09:23:04
 > - <span style="font-size: small; "> PPT显示比例：宽屏16:9</span>
 > - <span style="font-size: small; "> PPT软件版本：Microsoft 365</span>
 
-### 《农业大数据》配套PPT
-制作中……
+### 《农业大数据》
+#### 配套PPT
+- 第1章 农业大数据概述 熊航 (pptx)  <a onclick="showDownloadModal('第1章 农业大数据概述 熊航.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第1章 农业大数据概述 熊航.pptx', 'chapter01')" href="javascript:void(0)">下载</a>
+- 第2章 遥感大数据 胡琼 (pptx)  <a onclick="showDownloadModal('第2章 遥感大数据 胡琼.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第2章 遥感大数据 胡琼.pptx', 'chapter02')" href="javascript:void(0)">下载</a>
+- 第3章 物联网数据 林涛 (pptx)  <a onclick="showDownloadModal('第3章 物联网数据 林涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第3章 物联网数据 林涛.pptx', 'chapter03')" href="javascript:void(0)">下载</a>
+- 第4章 台站监测数据 冯晓龙 (pptx)  <a onclick="showDownloadModal('第4章 台站监测数据 冯晓龙.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第4章 台站监测数据 冯晓龙.pptx', 'chapter04')" href="javascript:void(0)">下载</a>
+- 第5章 互联网数据 熊涛 (pptx)  <a onclick="showDownloadModal('第5章 互联网数据 熊涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第5章 互联网数据 熊涛.pptx', 'chapter05')" href="javascript:void(0)">下载</a>
+- 第6章 政府统计数据 张晓恒 (pptx)  <a onclick="showDownloadModal('第6章 政府统计数据 张晓恒.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第6章 政府统计数据 张晓恒.pptx', 'chapter06')" href="javascript:void(0)">下载</a>
+- 第7章 农户调查数据 田旭 (pptx)  <a onclick="showDownloadModal('第7章 农户调查数据 田旭.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第7章 农户调查数据 田旭.pptx', 'chapter07')" href="javascript:void(0)">下载</a>
+- 第8章 众包数据 吕佳乐 (pptx)  <a onclick="showDownloadModal('第8章 众包数据 吕佳乐.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第8章 众包数据 吕佳乐.pptx', 'chapter08')" href="javascript:void(0)">下载</a>
+- 第9章 作物大数据 李林等 (pptx)  <a onclick="showDownloadModal('第9章 作物大数据 李林等.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第9章 作物大数据 李林等.pptx', 'chapter09')" href="javascript:void(0)">下载</a>
+- 第10章 园艺大数据 黄远 (pptx)  <a onclick="showDownloadModal('第10章 园艺大数据 黄远.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第10章 园艺大数据 黄远.pptx', 'chapter10')" href="javascript:void(0)">下载</a>
+- 第11章 畜牧业大数据 周远飞 (pptx)  <a onclick="showDownloadModal('第11章 畜牧业大数据 周远飞.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第11章 畜牧业大数据 周远飞.pptx', 'chapter11')" href="javascript:void(0)">下载</a>
+- 第12章 渔业大数据 马贺 (pptx)  <a onclick="showDownloadModal('第12章 渔业大数据 马贺.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第12章 渔业大数据 马贺.pptx', 'chapter12')" href="javascript:void(0)">下载</a>
+- 第13章 农产品供应链大数据 洪宪培 (pptx)  <a onclick="showDownloadModal('第13章 农产品供应链大数据 洪宪培.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第13章 农产品供应链大数据 洪宪培.pptx', 'chapter13')" href="javascript:void(0)">下载</a>
+- 第14章 农产品市场大数据 熊涛 (pptx)  <a onclick="showDownloadModal('第14章 农产品市场大数据 熊涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第14章 农产品市场大数据 熊涛.pptx', 'chapter14')" href="javascript:void(0)">下载</a>
+
+#### 思考题参考答案
+- 第1章 农业大数据概述 思考题参考答案 (docx)  <a onclick="showDownloadModal('第1章 农业大数据概述 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第1章 农业大数据概述 思考题参考答案.docx', 'chapter01')" href="javascript:void(0)">下载</a>
+- 第2章 遥感大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第2章 遥感大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第2章 遥感大数据 思考题参考答案.docx', 'chapter02')" href="javascript:void(0)">下载</a>
+- 第3章 物联网数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第3章 物联网数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第3章 物联网数据 思考题参考答案.docx', 'chapter03')" href="javascript:void(0)">下载</a>
+- 第4章 台站监测数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第4章 台站监测数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第4章 台站监测数据 思考题参考答案.docx', 'chapter04')" href="javascript:void(0)">下载</a>
+- 第5章 互联网数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第5章 互联网数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第5章 互联网数据 思考题参考答案.docx', 'chapter05')" href="javascript:void(0)">下载</a>
+- 第6章 政府统计数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第6章 政府统计数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第6章 政府统计数据 思考题参考答案.docx', 'chapter06')" href="javascript:void(0)">下载</a>
+- 第7章 农户调查数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第7章 农户调查数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第7章 农户调查数据 思考题参考答案.docx', 'chapter07')" href="javascript:void(0)">下载</a>
+- 第8章 众包数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第8章 众包数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第8章 众包数据 思考题参考答案.docx', 'chapter08')" href="javascript:void(0)">下载</a>
+- 第9章 作物大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第9章 作物大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第9章 作物大数据 思考题参考答案.docx', 'chapter09')" href="javascript:void(0)">下载</a>
+- 第10章 园艺大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第10章 园艺大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第10章 园艺大数据 思考题参考答案.docx', 'chapter10')" href="javascript:void(0)">下载</a>
+- 第11章 畜牧业大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第11章 畜牧业大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第11章 畜牧业大数据 思考题参考答案.docx', 'chapter11')" href="javascript:void(0)">下载</a>
+- 第12章 渔业大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第12章 渔业大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第12章 渔业大数据 思考题参考答案.docx', 'chapter12')" href="javascript:void(0)">下载</a>
+- 第13章 农产品供应链大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第13章 农产品供应链大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第13章 农产品供应链大数据 思考题参考答案.docx', 'chapter13')" href="javascript:void(0)">下载</a>
+- 第14章 农产品市场大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第14章 农产品市场大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第14章 农产品市场大数据 思考题参考答案.docx', 'chapter14')" href="javascript:void(0)">下载</a>

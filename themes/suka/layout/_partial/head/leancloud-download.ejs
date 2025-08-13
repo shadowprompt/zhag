@@ -112,7 +112,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
     function initializeLeanCloud() {
         try {
             if (typeof AV !== 'undefined') {
-                AV.init(LEANCLOUD_CONFIG);
+                // AV.init(LEANCLOUD_CONFIG); // 很可能全局已经初始化了
                 window.leancloudInitialized = true;
                 console.log('LeanCloud 初始化成功');
             } else {
