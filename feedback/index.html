@@ -146,7 +146,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="智慧农业"><meta name="msapplication-starturl" content="https://zh.ag"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="智慧农业"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="读者反馈 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/feedback/"><meta property="og:locale" content="en"><meta name="description" content="欢迎读者留言反馈 - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:22:24.000Z"><meta property="article:modified_time" content="2025-01-18T01:06:16.045Z"><meta property="og:updated_time" content="2025-01-18T01:06:16.045Z">
+    <meta property="og:title" content="读者反馈 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/feedback/"><meta property="og:locale" content="en"><meta name="description" content="欢迎读者留言反馈 - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:22:24.000Z"><meta property="article:modified_time" content="2025-08-13T00:24:02.020Z"><meta property="og:updated_time" content="2025-08-13T00:24:02.020Z">
 
     
 
@@ -186,6 +186,325 @@
 
     <!-- ### Custom Head ### -->
     
+
+    <!-- ### LeanCloud Download Functionality ### -->
+    <!-- LeanCloud 下载功能 -->
+<style>
+.download-modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.download-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.download-modal h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.download-form-group {
+    margin-bottom: 20px;
+}
+
+.download-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.download-form-group input, .download-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.download-form-group input:focus, .download-form-group select:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 5px rgba(0,124,186,0.3);
+}
+
+.download-modal-buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.download-btn-primary {
+    background-color: #007cba;
+    color: white;
+}
+
+.download-btn-primary:hover {
+    background-color: #005a87;
+}
+
+.download-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.download-btn-secondary:hover {
+    background-color: #545b62;
+}
+</style>
+
+
+<script>
+// 检查是否已经初始化过，避免重复声明
+if (typeof window.downloadSystemInitialized === 'undefined') {
+    // 全局变量存储当前要下载的文件信息
+    window.currentDownloadInfo = null;
+    window.leancloudInitialized = false;
+    window.downloadSystemInitialized = true;
+
+    // LeanCloud 配置 - 从主题配置中读取
+    const LEANCLOUD_CONFIG = {
+      appId: "n87e56Pd4vy8Mc5lBhD5zcI8-gzGzoHsz",
+      appKey: "ewwupYEWGyfQU6FioTg6IhCQ",
+      serverURLs: "https://n87e56pd.lc-cn-n1-shared.com",
+    };
+
+    // 初始化 LeanCloud
+    function initializeLeanCloud() {
+        try {
+            if (typeof AV !== 'undefined') {
+                // AV.init(LEANCLOUD_CONFIG); // 很可能全局已经初始化了
+                window.leancloudInitialized = true;
+                console.log('LeanCloud 初始化成功');
+            } else {
+                console.error('LeanCloud SDK 未加载');
+            }
+        } catch (error) {
+            console.error('LeanCloud 初始化失败:', error);
+        }
+    }
+
+    // 等待 LeanCloud SDK 加载完成
+    function waitForLeanCloud() {
+        if (typeof AV !== 'undefined') {
+            initializeLeanCloud();
+        } else {
+            // 如果还没加载完成，等待一段时间后重试
+            setTimeout(waitForLeanCloud, 100);
+        }
+    }
+
+    // 开始等待 LeanCloud SDK
+    waitForLeanCloud();
+
+    // 显示下载信息收集弹框 - 暴露为全局函数
+    window.showDownloadModalFromTheme = function(fileName, downloadUrl, trackId) {
+        // 确保 currentDownloadInfo 被正确初始化
+        window.currentDownloadInfo = {
+            fileName: fileName,
+            downloadUrl: downloadUrl,
+            trackId: trackId
+        };
+        
+        // 显示模态框
+        const modal = document.getElementById('downloadModal');
+        const overlay = document.getElementById('modalOverlay');
+        
+        if (modal && overlay) {
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        } else {
+            console.error('模态框元素未找到');
+        }
+    };
+
+    // 关闭模态框 - 暴露为全局函数
+    window.closeModal = function() {
+        const modal = document.getElementById('downloadModal');
+        const overlay = document.getElementById('modalOverlay');
+        
+        if (modal && overlay) {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        
+        // 重置下载信息
+        window.currentDownloadInfo = null;
+    };
+
+    // 保存用户信息到 LeanCloud
+    async function saveUserInfoToLeanCloud(userInfo) {
+        try {
+            // 检查 LeanCloud 是否已初始化
+            if (!window.leancloudInitialized) {
+                console.warn('LeanCloud 未初始化，跳过数据保存');
+                return false;
+            }
+
+            // 检查 LeanCloud 是否可用
+            if (typeof AV === 'undefined') {
+                console.error('LeanCloud SDK 未加载');
+                return false;
+            }
+
+            // 创建 DownloadRecord 对象
+            const DownloadRecord = AV.Object.extend('DownloadRecord');
+            const downloadRecord = new DownloadRecord();
+            
+            // 设置字段值
+            downloadRecord.set('userName', userInfo.name);
+            downloadRecord.set('userOrganization', userInfo.organization);
+            downloadRecord.set('userProfession', userInfo.profession);
+            downloadRecord.set('fileName', userInfo.fileName);
+            downloadRecord.set('downloadTime', new Date(userInfo.downloadTime));
+            downloadRecord.set('trackId', userInfo.trackId);
+            downloadRecord.set('ipAddress', userInfo.ipAddress || 'unknown');
+            downloadRecord.set('userAgent', navigator.userAgent);
+            
+            // 保存到 LeanCloud
+            const result = await downloadRecord.save();
+            console.log('用户信息已保存到 LeanCloud:', result);
+            return true;
+        } catch (error) {
+            console.error('保存到 LeanCloud 失败:', error);
+            return false;
+        }
+    }
+
+    // 获取用户 IP 地址
+    async function getUserIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+        } catch (error) {
+            console.error('获取 IP 地址失败:', error);
+            return 'unknown';
+        }
+    }
+
+    // 处理下载 - 暴露为全局函数
+    window.handleDownload = async function() {
+        // 检查 currentDownloadInfo 是否存在
+        if (!window.currentDownloadInfo) {
+            console.error('下载信息未初始化');
+            alert('下载信息错误，请重新点击下载链接');
+            return;
+        }
+
+        const nameInput = document.getElementById('userName');
+        const organizationInput = document.getElementById('userOrganization');
+        const professionInput = document.getElementById('userProfession');
+
+        if (!nameInput || !organizationInput || !professionInput) {
+            console.error('表单元素未找到');
+            alert('页面加载错误，请刷新页面重试');
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const organization = organizationInput.value.trim();
+        const profession = professionInput.value.trim();
+
+        if (!name || !organization || !profession) {
+            alert('请填写完整信息后再下载');
+            return;
+        }
+
+        try {
+            // 获取用户 IP 地址
+            const ipAddress = await getUserIP();
+
+            // 记录用户信息
+            const userInfo = {
+                name: name,
+                organization: organization,
+                profession: profession,
+                fileName: window.currentDownloadInfo.fileName,
+                downloadTime: new Date().toLocaleString(),
+                trackId: window.currentDownloadInfo.trackId,
+                ipAddress: ipAddress
+            };
+            
+            console.log('下载信息:', userInfo);
+            
+            // 保存到 LeanCloud
+            const saveSuccess = await saveUserInfoToLeanCloud(userInfo);
+            
+            if (!saveSuccess) {
+                console.warn('用户信息保存失败，但继续下载');
+            }
+
+            // 触发下载
+            if (window.currentDownloadInfo.trackId) {
+                if (typeof _zhagTrack === 'function') {
+                    _zhagTrack(window.currentDownloadInfo.trackId);
+                }
+            }
+            
+            // 创建下载链接
+            const link = document.createElement('a');
+            link.href = window.currentDownloadInfo.downloadUrl;
+            link.download = window.currentDownloadInfo.fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 关闭模态框
+            window.closeModal();
+            
+            // 清空表单
+            const form = document.getElementById('downloadForm');
+            if (form) {
+                form.reset();
+            }
+        } catch (error) {
+            console.error('下载处理失败:', error);
+            alert('下载过程中出现错误，请重试');
+        }
+    };
+
+    // 点击模态框外部关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            const overlay = document.getElementById('modalOverlay');
+            if (event.target === overlay) {
+                window.closeModal();
+            }
+        }
+    });
+}
+</script> 
 </head>
 
     <body>
@@ -239,7 +558,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2025-01-18");
+        var dateUpdate = Date.parse("2025-08-13");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;

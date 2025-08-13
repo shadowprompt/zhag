@@ -146,7 +146,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="智慧农业"><meta name="msapplication-starturl" content="https://zh.ag"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="智慧农业"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="配套课件 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/slides/"><meta property="og:locale" content="en"><meta name="description" content="《智慧农业概论》配套PPT     function _zhagTrack(id) {        window.LA?.track(&amp;apos;download&amp;apos;, {[id]: new Date().toLocaleString()});        window._hmt?.push([&amp;apos;_trackEvent&amp;apos;, &amp;apos;download&amp;apos;, &amp;apos;click&amp;apos;, id]);     }   智慧农业概论 - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:23:04.000Z"><meta property="article:modified_time" content="2025-01-18T01:06:16.046Z"><meta property="og:updated_time" content="2025-01-18T01:06:16.046Z">
+    <meta property="og:title" content="配套课件 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/slides/"><meta property="og:locale" content="en"><meta name="description" content="《智慧农业概论》配套PPT     function _zhagTrack(id) {        window.LA?.track(&amp;apos;download&amp;apos;, {[id]: new Date().toLocaleString()});        window._hmt?.push([&amp;apos;_trackEvent&amp;apos;, &amp;apos;download&amp;apos;, &amp;apos;click&amp;apos;, id]);     }      &#x2F;&#x2F;  - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:23:04.000Z"><meta property="article:modified_time" content="2025-08-13T00:24:02.021Z"><meta property="og:updated_time" content="2025-08-13T00:24:02.021Z">
 
     
 
@@ -186,6 +186,325 @@
 
     <!-- ### Custom Head ### -->
     
+
+    <!-- ### LeanCloud Download Functionality ### -->
+    <!-- LeanCloud 下载功能 -->
+<style>
+.download-modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.download-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.download-modal h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+.download-form-group {
+    margin-bottom: 20px;
+}
+
+.download-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.download-form-group input, .download-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.download-form-group input:focus, .download-form-group select:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 5px rgba(0,124,186,0.3);
+}
+
+.download-modal-buttons {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.download-btn-primary {
+    background-color: #007cba;
+    color: white;
+}
+
+.download-btn-primary:hover {
+    background-color: #005a87;
+}
+
+.download-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.download-btn-secondary:hover {
+    background-color: #545b62;
+}
+</style>
+
+
+<script>
+// 检查是否已经初始化过，避免重复声明
+if (typeof window.downloadSystemInitialized === 'undefined') {
+    // 全局变量存储当前要下载的文件信息
+    window.currentDownloadInfo = null;
+    window.leancloudInitialized = false;
+    window.downloadSystemInitialized = true;
+
+    // LeanCloud 配置 - 从主题配置中读取
+    const LEANCLOUD_CONFIG = {
+      appId: "n87e56Pd4vy8Mc5lBhD5zcI8-gzGzoHsz",
+      appKey: "ewwupYEWGyfQU6FioTg6IhCQ",
+      serverURLs: "https://n87e56pd.lc-cn-n1-shared.com",
+    };
+
+    // 初始化 LeanCloud
+    function initializeLeanCloud() {
+        try {
+            if (typeof AV !== 'undefined') {
+                // AV.init(LEANCLOUD_CONFIG); // 很可能全局已经初始化了
+                window.leancloudInitialized = true;
+                console.log('LeanCloud 初始化成功');
+            } else {
+                console.error('LeanCloud SDK 未加载');
+            }
+        } catch (error) {
+            console.error('LeanCloud 初始化失败:', error);
+        }
+    }
+
+    // 等待 LeanCloud SDK 加载完成
+    function waitForLeanCloud() {
+        if (typeof AV !== 'undefined') {
+            initializeLeanCloud();
+        } else {
+            // 如果还没加载完成，等待一段时间后重试
+            setTimeout(waitForLeanCloud, 100);
+        }
+    }
+
+    // 开始等待 LeanCloud SDK
+    waitForLeanCloud();
+
+    // 显示下载信息收集弹框 - 暴露为全局函数
+    window.showDownloadModalFromTheme = function(fileName, downloadUrl, trackId) {
+        // 确保 currentDownloadInfo 被正确初始化
+        window.currentDownloadInfo = {
+            fileName: fileName,
+            downloadUrl: downloadUrl,
+            trackId: trackId
+        };
+        
+        // 显示模态框
+        const modal = document.getElementById('downloadModal');
+        const overlay = document.getElementById('modalOverlay');
+        
+        if (modal && overlay) {
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        } else {
+            console.error('模态框元素未找到');
+        }
+    };
+
+    // 关闭模态框 - 暴露为全局函数
+    window.closeModal = function() {
+        const modal = document.getElementById('downloadModal');
+        const overlay = document.getElementById('modalOverlay');
+        
+        if (modal && overlay) {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+        
+        // 重置下载信息
+        window.currentDownloadInfo = null;
+    };
+
+    // 保存用户信息到 LeanCloud
+    async function saveUserInfoToLeanCloud(userInfo) {
+        try {
+            // 检查 LeanCloud 是否已初始化
+            if (!window.leancloudInitialized) {
+                console.warn('LeanCloud 未初始化，跳过数据保存');
+                return false;
+            }
+
+            // 检查 LeanCloud 是否可用
+            if (typeof AV === 'undefined') {
+                console.error('LeanCloud SDK 未加载');
+                return false;
+            }
+
+            // 创建 DownloadRecord 对象
+            const DownloadRecord = AV.Object.extend('DownloadRecord');
+            const downloadRecord = new DownloadRecord();
+            
+            // 设置字段值
+            downloadRecord.set('userName', userInfo.name);
+            downloadRecord.set('userOrganization', userInfo.organization);
+            downloadRecord.set('userProfession', userInfo.profession);
+            downloadRecord.set('fileName', userInfo.fileName);
+            downloadRecord.set('downloadTime', new Date(userInfo.downloadTime));
+            downloadRecord.set('trackId', userInfo.trackId);
+            downloadRecord.set('ipAddress', userInfo.ipAddress || 'unknown');
+            downloadRecord.set('userAgent', navigator.userAgent);
+            
+            // 保存到 LeanCloud
+            const result = await downloadRecord.save();
+            console.log('用户信息已保存到 LeanCloud:', result);
+            return true;
+        } catch (error) {
+            console.error('保存到 LeanCloud 失败:', error);
+            return false;
+        }
+    }
+
+    // 获取用户 IP 地址
+    async function getUserIP() {
+        try {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            return data.ip;
+        } catch (error) {
+            console.error('获取 IP 地址失败:', error);
+            return 'unknown';
+        }
+    }
+
+    // 处理下载 - 暴露为全局函数
+    window.handleDownload = async function() {
+        // 检查 currentDownloadInfo 是否存在
+        if (!window.currentDownloadInfo) {
+            console.error('下载信息未初始化');
+            alert('下载信息错误，请重新点击下载链接');
+            return;
+        }
+
+        const nameInput = document.getElementById('userName');
+        const organizationInput = document.getElementById('userOrganization');
+        const professionInput = document.getElementById('userProfession');
+
+        if (!nameInput || !organizationInput || !professionInput) {
+            console.error('表单元素未找到');
+            alert('页面加载错误，请刷新页面重试');
+            return;
+        }
+
+        const name = nameInput.value.trim();
+        const organization = organizationInput.value.trim();
+        const profession = professionInput.value.trim();
+
+        if (!name || !organization || !profession) {
+            alert('请填写完整信息后再下载');
+            return;
+        }
+
+        try {
+            // 获取用户 IP 地址
+            const ipAddress = await getUserIP();
+
+            // 记录用户信息
+            const userInfo = {
+                name: name,
+                organization: organization,
+                profession: profession,
+                fileName: window.currentDownloadInfo.fileName,
+                downloadTime: new Date().toLocaleString(),
+                trackId: window.currentDownloadInfo.trackId,
+                ipAddress: ipAddress
+            };
+            
+            console.log('下载信息:', userInfo);
+            
+            // 保存到 LeanCloud
+            const saveSuccess = await saveUserInfoToLeanCloud(userInfo);
+            
+            if (!saveSuccess) {
+                console.warn('用户信息保存失败，但继续下载');
+            }
+
+            // 触发下载
+            if (window.currentDownloadInfo.trackId) {
+                if (typeof _zhagTrack === 'function') {
+                    _zhagTrack(window.currentDownloadInfo.trackId);
+                }
+            }
+            
+            // 创建下载链接
+            const link = document.createElement('a');
+            link.href = window.currentDownloadInfo.downloadUrl;
+            link.download = window.currentDownloadInfo.fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 关闭模态框
+            window.closeModal();
+            
+            // 清空表单
+            const form = document.getElementById('downloadForm');
+            if (form) {
+                form.reset();
+            }
+        } catch (error) {
+            console.error('下载处理失败:', error);
+            alert('下载过程中出现错误，请重试');
+        }
+    };
+
+    // 点击模态框外部关闭
+    document.addEventListener('DOMContentLoaded', function() {
+        window.onclick = function(event) {
+            const modal = document.getElementById('downloadModal');
+            const overlay = document.getElementById('modalOverlay');
+            if (event.target === overlay) {
+                window.closeModal();
+            }
+        }
+    });
+}
+</script> 
 </head>
 
     <body>
@@ -236,17 +555,69 @@
        window.LA?.track('download', {[id]: new Date().toLocaleString()});
        window._hmt?.push(['_trackEvent', 'download', 'click', id]);
     }
+
+    // 确保 showDownloadModal 函数在页面中可用
+    function showDownloadModal(fileName, downloadUrl, trackId) {
+        // 检查全局函数是否已定义（来自主题模板）
+        if (typeof window.showDownloadModalFromTheme === 'function') {
+            window.showDownloadModalFromTheme(fileName, downloadUrl, trackId);
+        } else {
+            // 如果主题函数还没加载，等待一下再调用
+            setTimeout(() => {
+                if (typeof window.showDownloadModalFromTheme === 'function') {
+                    window.showDownloadModalFromTheme(fileName, downloadUrl, trackId);
+                } else {
+                    console.error('下载功能未加载完成，请刷新页面重试');
+                    alert('下载功能未加载完成，请刷新页面重试');
+                }
+            }, 500);
+        }
+    }
 </script>
+
+<!-- 模态框 -->
+<div id="modalOverlay" class="download-modal-overlay"></div>
+<div id="downloadModal" class="download-modal">
+    <h3>下载信息收集</h3>
+    <form id="downloadForm">
+        <div class="download-form-group">
+            <label for="userName">姓名 *</label>
+            <input type="text" id="userName" name="userName" required>
+        </div>
+        <div class="download-form-group">
+            <label for="userOrganization">单位 *</label>
+            <input type="text" id="userOrganization" name="userOrganization" required>
+        </div>
+        <div class="download-form-group">
+            <label for="userProfession">职业 *</label>
+            <select id="userProfession" name="userProfession" required>
+                <option value="">请选择职业</option>
+                <option value="学生">学生</option>
+                <option value="教师">教师</option>
+                <option value="研究人员">研究人员</option>
+                <option value="农业从业者">农业从业者</option>
+                <option value="企业员工">企业员工</option>
+                <option value="政府工作人员">政府工作人员</option>
+                <option value="其他">其他</option>
+            </select>
+        </div>
+        <div class="download-modal-buttons">
+            <button type="button" class="download-btn download-btn-primary" onclick="handleDownload()">确认下载</button>
+            <button type="button" class="download-btn download-btn-secondary" onclick="closeModal()">取消</button>
+        </div>
+    </form>
+</div>
+
 <ul>
-<li>智慧农业概论-第一章-绪论-202210 (pptx)   <a onclick="_zhagTrack('chapter01')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA-202210.pptx">下载</a></li>
-<li>智慧农业概论-第二章-智慧农业的支撑技术-202210 (pptx)   <a onclick="_zhagTrack('chapter02')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E7%9A%84%E6%94%AF%E6%92%91%E6%8A%80%E6%9C%AF-202210.pptx">下载</a></li>
-<li>智慧农业概论-第三章-智能种植决策与执行-202210 (pptx)   <a onclick="_zhagTrack('chapter03')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%99%BA%E8%83%BD%E7%A7%8D%E6%A4%8D%E5%86%B3%E7%AD%96%E4%B8%8E%E6%89%A7%E8%A1%8C-202210.pptx">下载</a></li>
-<li>智慧农业概论-第四章-农作物生长智能检测-202209 (pptx)   <a onclick="_zhagTrack('chapter04')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%9C%E4%BD%9C%E7%89%A9%E7%94%9F%E9%95%BF%E6%99%BA%E8%83%BD%E6%A3%80%E6%B5%8B-202209.pptx">下载</a></li>
-<li>智慧农业概论-第五章-智慧果园-202210 (pptx)   <a onclick="_zhagTrack('chapter05')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%99%BA%E6%85%A7%E6%9E%9C%E5%9B%AD-202210.pptx">下载</a></li>
-<li>智慧农业概论-第六章-智能化植物工厂-202210 (pptx)   <a onclick="_zhagTrack('chapter06')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%99%BA%E8%83%BD%E5%8C%96%E6%A4%8D%E7%89%A9%E5%B7%A5%E5%8E%82-202210.pptx">下载</a></li>
-<li>智慧农业概论-第七章-智慧畜牧-202210 (pptx)   <a onclick="_zhagTrack('chapter07')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7-202210.pptx">下载</a></li>
-<li>智慧农业概论-第八章-智慧渔业-202210 (pptx)   <a onclick="_zhagTrack('chapter08')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%99%BA%E6%85%A7%E6%B8%94%E4%B8%9A-202210.pptx">下载</a></li>
-<li>智慧农业概论-第九章-智慧农产品运营-202210 (pptx)   <a onclick="_zhagTrack('chapter09')" target="_blank" rel="noopener" href="https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5-202210.pptx">下载</a></li>
+<li>智慧农业概论-第一章-绪论-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第一章-绪论-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA-202210.pptx', 'chapter01')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第二章-智慧农业的支撑技术-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第二章-智慧农业的支撑技术-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E7%9A%84%E6%94%AF%E6%92%91%E6%8A%80%E6%9C%AF-202210.pptx', 'chapter02')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第三章-智能种植决策与执行-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第三章-智能种植决策与执行-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%99%BA%E8%83%BD%E7%A7%8D%E6%A4%8D%E5%86%B3%E7%AD%96%E4%B8%8E%E6%89%A7%E8%A1%8C-202210.pptx', 'chapter03')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第四章-农作物生长智能检测-202209 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第四章-农作物生长智能检测-202209.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%9C%E4%BD%9C%E7%89%A9%E7%94%9F%E9%95%BF%E6%99%BA%E8%83%BD%E6%A3%80%E6%B5%8B-202209.pptx', 'chapter04')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第五章-智慧果园-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第五章-智慧果园-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%99%BA%E6%85%A7%E6%9E%9C%E5%9B%AD-202210.pptx', 'chapter05')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第六章-智能化植物工厂-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第六章-智能化植物工厂-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%99%BA%E8%83%BD%E5%8C%96%E6%A4%8D%E7%89%A9%E5%B7%A5%E5%8E%82-202210.pptx', 'chapter06')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第七章-智慧畜牧-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第七章-智慧畜牧-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%99%BA%E6%85%A7%E7%95%9C%E7%89%A7-202210.pptx', 'chapter07')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第八章-智慧渔业-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第八章-智慧渔业-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E5%85%AB%E7%AB%A0-%E6%99%BA%E6%85%A7%E6%B8%94%E4%B8%9A-202210.pptx', 'chapter08')" href="javascript:void(0)">下载</a></li>
+<li>智慧农业概论-第九章-智慧农产品运营-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第九章-智慧农产品运营-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%BA%A7%E5%93%81%E8%BF%90%E8%90%A5-202210.pptx', 'chapter09')" href="javascript:void(0)">下载</a></li>
 </ul>
 <blockquote>
 <ul>
@@ -255,7 +626,38 @@
 <li><span style="font-size: small; "> PPT软件版本：Microsoft 365</span></li>
 </ul>
 </blockquote>
-<h3 id="《农业大数据》配套PPT"><a href="#《农业大数据》配套PPT" class="headerlink" title="《农业大数据》配套PPT"></a>《农业大数据》配套PPT</h3><p>制作中……</p>
+<h3 id="《农业大数据》"><a href="#《农业大数据》" class="headerlink" title="《农业大数据》"></a>《农业大数据》</h3><h4 id="配套PPT"><a href="#配套PPT" class="headerlink" title="配套PPT"></a>配套PPT</h4><ul>
+<li>第1章 农业大数据概述 熊航 (pptx)  <a onclick="showDownloadModal('第1章 农业大数据概述 熊航.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第1章 农业大数据概述 熊航.pptx', 'chapter01')" href="javascript:void(0)">下载</a></li>
+<li>第2章 遥感大数据 胡琼 (pptx)  <a onclick="showDownloadModal('第2章 遥感大数据 胡琼.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第2章 遥感大数据 胡琼.pptx', 'chapter02')" href="javascript:void(0)">下载</a></li>
+<li>第3章 物联网数据 林涛 (pptx)  <a onclick="showDownloadModal('第3章 物联网数据 林涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第3章 物联网数据 林涛.pptx', 'chapter03')" href="javascript:void(0)">下载</a></li>
+<li>第4章 台站监测数据 冯晓龙 (pptx)  <a onclick="showDownloadModal('第4章 台站监测数据 冯晓龙.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第4章 台站监测数据 冯晓龙.pptx', 'chapter04')" href="javascript:void(0)">下载</a></li>
+<li>第5章 互联网数据 熊涛 (pptx)  <a onclick="showDownloadModal('第5章 互联网数据 熊涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第5章 互联网数据 熊涛.pptx', 'chapter05')" href="javascript:void(0)">下载</a></li>
+<li>第6章 政府统计数据 张晓恒 (pptx)  <a onclick="showDownloadModal('第6章 政府统计数据 张晓恒.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第6章 政府统计数据 张晓恒.pptx', 'chapter06')" href="javascript:void(0)">下载</a></li>
+<li>第7章 农户调查数据 田旭 (pptx)  <a onclick="showDownloadModal('第7章 农户调查数据 田旭.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第7章 农户调查数据 田旭.pptx', 'chapter07')" href="javascript:void(0)">下载</a></li>
+<li>第8章 众包数据 吕佳乐 (pptx)  <a onclick="showDownloadModal('第8章 众包数据 吕佳乐.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第8章 众包数据 吕佳乐.pptx', 'chapter08')" href="javascript:void(0)">下载</a></li>
+<li>第9章 作物大数据 李林等 (pptx)  <a onclick="showDownloadModal('第9章 作物大数据 李林等.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第9章 作物大数据 李林等.pptx', 'chapter09')" href="javascript:void(0)">下载</a></li>
+<li>第10章 园艺大数据 黄远 (pptx)  <a onclick="showDownloadModal('第10章 园艺大数据 黄远.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第10章 园艺大数据 黄远.pptx', 'chapter10')" href="javascript:void(0)">下载</a></li>
+<li>第11章 畜牧业大数据 周远飞 (pptx)  <a onclick="showDownloadModal('第11章 畜牧业大数据 周远飞.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第11章 畜牧业大数据 周远飞.pptx', 'chapter11')" href="javascript:void(0)">下载</a></li>
+<li>第12章 渔业大数据 马贺 (pptx)  <a onclick="showDownloadModal('第12章 渔业大数据 马贺.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第12章 渔业大数据 马贺.pptx', 'chapter12')" href="javascript:void(0)">下载</a></li>
+<li>第13章 农产品供应链大数据 洪宪培 (pptx)  <a onclick="showDownloadModal('第13章 农产品供应链大数据 洪宪培.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第13章 农产品供应链大数据 洪宪培.pptx', 'chapter13')" href="javascript:void(0)">下载</a></li>
+<li>第14章 农产品市场大数据 熊涛 (pptx)  <a onclick="showDownloadModal('第14章 农产品市场大数据 熊涛.pptx', 'https://wp-img.daozhao.com/zhag/农业大数据PPT课件/第14章 农产品市场大数据 熊涛.pptx', 'chapter14')" href="javascript:void(0)">下载</a></li>
+</ul>
+<h4 id="思考题参考答案"><a href="#思考题参考答案" class="headerlink" title="思考题参考答案"></a>思考题参考答案</h4><ul>
+<li>第1章 农业大数据概述 思考题参考答案 (docx)  <a onclick="showDownloadModal('第1章 农业大数据概述 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第1章 农业大数据概述 思考题参考答案.docx', 'chapter01')" href="javascript:void(0)">下载</a></li>
+<li>第2章 遥感大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第2章 遥感大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第2章 遥感大数据 思考题参考答案.docx', 'chapter02')" href="javascript:void(0)">下载</a></li>
+<li>第3章 物联网数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第3章 物联网数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第3章 物联网数据 思考题参考答案.docx', 'chapter03')" href="javascript:void(0)">下载</a></li>
+<li>第4章 台站监测数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第4章 台站监测数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第4章 台站监测数据 思考题参考答案.docx', 'chapter04')" href="javascript:void(0)">下载</a></li>
+<li>第5章 互联网数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第5章 互联网数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第5章 互联网数据 思考题参考答案.docx', 'chapter05')" href="javascript:void(0)">下载</a></li>
+<li>第6章 政府统计数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第6章 政府统计数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第6章 政府统计数据 思考题参考答案.docx', 'chapter06')" href="javascript:void(0)">下载</a></li>
+<li>第7章 农户调查数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第7章 农户调查数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第7章 农户调查数据 思考题参考答案.docx', 'chapter07')" href="javascript:void(0)">下载</a></li>
+<li>第8章 众包数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第8章 众包数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第8章 众包数据 思考题参考答案.docx', 'chapter08')" href="javascript:void(0)">下载</a></li>
+<li>第9章 作物大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第9章 作物大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第9章 作物大数据 思考题参考答案.docx', 'chapter09')" href="javascript:void(0)">下载</a></li>
+<li>第10章 园艺大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第10章 园艺大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第10章 园艺大数据 思考题参考答案.docx', 'chapter10')" href="javascript:void(0)">下载</a></li>
+<li>第11章 畜牧业大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第11章 畜牧业大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第11章 畜牧业大数据 思考题参考答案.docx', 'chapter11')" href="javascript:void(0)">下载</a></li>
+<li>第12章 渔业大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第12章 渔业大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第12章 渔业大数据 思考题参考答案.docx', 'chapter12')" href="javascript:void(0)">下载</a></li>
+<li>第13章 农产品供应链大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第13章 农产品供应链大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第13章 农产品供应链大数据 思考题参考答案.docx', 'chapter13')" href="javascript:void(0)">下载</a></li>
+<li>第14章 农产品市场大数据 思考题参考答案 (docx)  <a onclick="showDownloadModal('第14章 农产品市场大数据 思考题参考答案.docx', 'https://wp-img.daozhao.com/zhag/农业大数据思考题参考答案/第14章 农产品市场大数据 思考题参考答案.docx', 'chapter14')" href="javascript:void(0)">下载</a></li>
+</ul>
 
                     </article>
                     
@@ -264,7 +666,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2025-01-18");
+        var dateUpdate = Date.parse("2025-08-13");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -298,6 +700,45 @@
 </ul>
 </div>
 
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="vcomments"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.0.0/dist/av-min.js"></script>
+<script src="https://www.daozhao.com/_res/libs/Valine.1.5.1.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,link,mail'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var requiredFields = 'nick'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    var langMode = { "nick": "昵称（必填）", "mail": "邮箱", "link": "工作单位", "nickFail": "昵称不能少于3个字符", "mailFail": "请填写正确的邮件地址", "sofa": "来发评论吧~", "submit": "提交", "reply": "回复", "cancelReply": "取消回复", "comments": "评论", "cancel": "取消", "confirm": "确认", "continue": "继续", "more": "加载更多...", "preview": "预览", "emoji": "表情", "expand": "查看更多...", "seconds": "秒前", "minutes": "分钟前", "hours": "小时前", "days": "天前", "now": "刚刚", "uploading": "正在传输...", "uploadDone": "传输完成!", "busy": "操作频繁，请稍候再试...", "code-98": "Valine 初始化失败，请检查 av-min.js 版本", "code-99": "Valine 初始化失败，请检查init中的`el`元素.", "code-100": "Valine 初始化失败，请检查你的AppId和AppKey.", "code-140": "今日 API 调用总次数已超过开发版限制.", "code-401": "未经授权的操作，请检查你的AppId和AppKey.", "code-403": "访问被API域名白名单拒绝，请检查你的安全域名设置." };
+    var notify = '' === 'true';
+    var verify = '' === 'true';
+    new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        appId: "n87e56Pd4vy8Mc5lBhD5zcI8-gzGzoHsz",
+        appKey: "ewwupYEWGyfQU6FioTg6IhCQ",
+        placeholder: "来点反馈吧",
+        meta: guest_info,
+        requiredFields: requiredFields,
+        pageSize:'10',
+        avatar:'identicon',
+        lang:'custom',
+        langMode,
+        guest_info: guest_info,
+        visitor: false
+    });
+</script>
+
+                        </div>
+                    
                 
             </div>
         </div>
