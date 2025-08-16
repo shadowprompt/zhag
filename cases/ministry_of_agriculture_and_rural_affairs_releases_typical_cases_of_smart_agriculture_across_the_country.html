@@ -146,7 +146,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="智慧农业"><meta name="msapplication-starturl" content="https://zh.ag"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="智慧农业"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="农业农村部发布全国智慧农业典型案例 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/cases/ministry_of_agriculture_and_rural_affairs_releases_typical_cases_of_smart_agriculture_across_the_country.html"><meta property="og:locale" content="en"><meta name="description" content="农业农村部发布全国智慧农业典型案例党中央、国务院高度重视智慧农业建设，把发展智慧农业作为建设数字中国、实施乡村振兴战略的重要内容。党的十九届五中全会强调建设智慧农业，“十四五”规划纲要中明确指出要加快发展智慧农业，“十四五”推进农业农村现代化规划也对智慧农业建设作出部署。在党中央、国务院的政策指引下，农业农村部编制的“十四五”全国农业农村信息化发展规划中明确提出，到2025年智慧农业发展迈上新台阶 - John Doe - 智慧农业"><meta property="article:published_time" content="2024-10-23T09:22:44.000Z"><meta property="article:modified_time" content="2025-08-13T01:15:20.521Z"><meta property="og:updated_time" content="2025-08-13T01:15:20.521Z">
+    <meta property="og:title" content="农业农村部发布全国智慧农业典型案例 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/cases/ministry_of_agriculture_and_rural_affairs_releases_typical_cases_of_smart_agriculture_across_the_country.html"><meta property="og:locale" content="en"><meta name="description" content="农业农村部发布全国智慧农业典型案例党中央、国务院高度重视智慧农业建设，把发展智慧农业作为建设数字中国、实施乡村振兴战略的重要内容。党的十九届五中全会强调建设智慧农业，“十四五”规划纲要中明确指出要加快发展智慧农业，“十四五”推进农业农村现代化规划也对智慧农业建设作出部署。在党中央、国务院的政策指引下，农业农村部编制的“十四五”全国农业农村信息化发展规划中明确提出，到2025年智慧农业发展迈上新台阶 - John Doe - 智慧农业"><meta property="article:published_time" content="2024-10-23T09:22:44.000Z"><meta property="article:modified_time" content="2025-08-16T15:24:11.979Z"><meta property="og:updated_time" content="2025-08-16T15:24:11.979Z">
 
     
 
@@ -384,6 +384,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
             downloadRecord.set('userName', userInfo.name);
             downloadRecord.set('userOrganization', userInfo.organization);
             downloadRecord.set('userProfession', userInfo.profession);
+            downloadRecord.set('userPurpose', userInfo.purpose);
+            downloadRecord.set('userEmail', userInfo.email || '');
             downloadRecord.set('fileName', userInfo.fileName);
             downloadRecord.set('downloadTime', new Date(userInfo.downloadTime));
             downloadRecord.set('trackId', userInfo.trackId);
@@ -424,8 +426,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const nameInput = document.getElementById('userName');
         const organizationInput = document.getElementById('userOrganization');
         const professionInput = document.getElementById('userProfession');
+        const purposeInput = document.getElementById('userPurpose');
+        const emailInput = document.getElementById('userEmail');
 
-        if (!nameInput || !organizationInput || !professionInput) {
+        if (!nameInput || !organizationInput || !professionInput || !purposeInput) {
             console.error('表单元素未找到');
             alert('页面加载错误，请刷新页面重试');
             return;
@@ -434,8 +438,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const name = nameInput.value.trim();
         const organization = organizationInput.value.trim();
         const profession = professionInput.value.trim();
+        const purpose = purposeInput.value.trim();
+        const email = emailInput ? emailInput.value.trim() : '';
 
-        if (!name || !organization || !profession) {
+        if (!name || !organization || !profession || !purpose) {
             alert('请填写完整信息后再下载');
             return;
         }
@@ -449,6 +455,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
                 name: name,
                 organization: organization,
                 profession: profession,
+                purpose: purpose,
+                email: email,
                 fileName: window.currentDownloadInfo.fileName,
                 downloadTime: new Date().toLocaleString(),
                 trackId: window.currentDownloadInfo.trackId,
@@ -524,7 +532,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
     
         <a href="/bigdata/" class="navbar-link">农业大数据</a>
     
-        <a href="/slides/" class="navbar-link">配套课件</a>
+        <a href="/slides/" class="navbar-link">配套课件习题</a>
     
         <a href="/references/" class="navbar-link">学习资料</a>
     
@@ -563,7 +571,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2025-08-13");
+        var dateUpdate = Date.parse("2025-08-16");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;

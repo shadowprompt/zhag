@@ -146,7 +146,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="智慧农业"><meta name="msapplication-starturl" content="https://zh.ag"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="智慧农业"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="学习资料 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/references/"><meta property="og:locale" content="en"><meta name="description" content="线上教学资源 虾稻共作农户绿色生产经营决策虚拟仿真实验  参考文献     function _zhagTrack(id) {        window.LA?.track(&amp;apos;download&amp;apos;, {[id]: new Date().toLocaleString()});        window._hmt?.push([&amp;apos;_trackEvent&amp;apos;, &amp;apos;download&amp;apos;, &amp;apos;click&amp;apos;,  - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:19:11.000Z"><meta property="article:modified_time" content="2025-08-13T01:15:20.522Z"><meta property="og:updated_time" content="2025-08-13T01:15:20.522Z">
+    <meta property="og:title" content="学习资料 | 智慧农业"><meta property="og:site_name" content="智慧农业"><meta property="og:type" content="website"><meta property="og:url" content="https://zh.ag/references/"><meta property="og:locale" content="en"><meta name="description" content="线上教学资源 虾稻共作农户绿色生产经营决策虚拟仿真实验 农业大数据资源汇总-《农业大数据》教材附件  参考文献     function _zhagTrack(id) {        window.LA?.track(&amp;apos;download&amp;apos;, {[id]: new Date().toLocaleString()});        window._hmt?.push([&amp;apos;_trackEvent&amp;apos;, - John Doe - 智慧农业"><meta property="article:published_time" content="2022-10-26T09:19:11.000Z"><meta property="article:modified_time" content="2025-08-16T15:24:11.979Z"><meta property="og:updated_time" content="2025-08-16T15:24:11.979Z">
 
     
 
@@ -384,6 +384,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
             downloadRecord.set('userName', userInfo.name);
             downloadRecord.set('userOrganization', userInfo.organization);
             downloadRecord.set('userProfession', userInfo.profession);
+            downloadRecord.set('userPurpose', userInfo.purpose);
+            downloadRecord.set('userEmail', userInfo.email || '');
             downloadRecord.set('fileName', userInfo.fileName);
             downloadRecord.set('downloadTime', new Date(userInfo.downloadTime));
             downloadRecord.set('trackId', userInfo.trackId);
@@ -424,8 +426,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const nameInput = document.getElementById('userName');
         const organizationInput = document.getElementById('userOrganization');
         const professionInput = document.getElementById('userProfession');
+        const purposeInput = document.getElementById('userPurpose');
+        const emailInput = document.getElementById('userEmail');
 
-        if (!nameInput || !organizationInput || !professionInput) {
+        if (!nameInput || !organizationInput || !professionInput || !purposeInput) {
             console.error('表单元素未找到');
             alert('页面加载错误，请刷新页面重试');
             return;
@@ -434,8 +438,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const name = nameInput.value.trim();
         const organization = organizationInput.value.trim();
         const profession = professionInput.value.trim();
+        const purpose = purposeInput.value.trim();
+        const email = emailInput ? emailInput.value.trim() : '';
 
-        if (!name || !organization || !profession) {
+        if (!name || !organization || !profession || !purpose) {
             alert('请填写完整信息后再下载');
             return;
         }
@@ -449,6 +455,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
                 name: name,
                 organization: organization,
                 profession: profession,
+                purpose: purpose,
+                email: email,
                 fileName: window.currentDownloadInfo.fileName,
                 downloadTime: new Date().toLocaleString(),
                 trackId: window.currentDownloadInfo.trackId,
@@ -524,7 +532,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
     
         <a href="/bigdata/" class="navbar-link">农业大数据</a>
     
-        <a href="/slides/" class="navbar-link">配套课件</a>
+        <a href="/slides/" class="navbar-link">配套课件习题</a>
     
         <a href="/references/" class="navbar-link">学习资料</a>
     
@@ -552,6 +560,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
                     <article id="post-content">
                         <h3 id="线上教学资源"><a href="#线上教学资源" class="headerlink" title="线上教学资源"></a>线上教学资源</h3><ul>
 <li><a target="_blank" href="https://www.ilab-x.com/details/page?id=12963">虾稻共作农户绿色生产经营决策虚拟仿真实验</a></li>
+<li><a target="_blank" href="https://wp-img.daozhao.com/zhag/农业大数据资源汇总 202505.pdf">农业大数据资源汇总-《农业大数据》教材附件</a></li>
 </ul>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><script>
     function _zhagTrack(id) {
@@ -578,7 +587,7 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
     <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2025-08-13");
+        var dateUpdate = Date.parse("2025-08-16");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
