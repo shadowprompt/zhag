@@ -5,6 +5,7 @@ date: 2022-10-26 09:19:11
 
 ### 线上教学资源
 - <a target="_blank" href="https://www.ilab-x.com/details/page?id=12963">虾稻共作农户绿色生产经营决策虚拟仿真实验</a>
+- <a target="_blank" href="https://wp-img.daozhao.com/zhag/农业大数据资源汇总 202505.pdf">农业大数据资源汇总-《农业大数据》教材附件</a>
 
 ### 参考文献
 <script>

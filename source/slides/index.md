@@ -1,9 +1,8 @@
 comments: true
-title: 配套课件
+title: 配套课件习题
 date: 2022-10-26 09:23:04
 ---
 
-### 《智慧农业概论》配套PPT
 
 <script>
     function _zhagTrack(id) {
@@ -56,12 +55,28 @@ date: 2022-10-26 09:23:04
                 <option value="其他">其他</option>
             </select>
         </div>
+        <div class="download-form-group">
+            <label for="userPurpose">用途 *</label>
+            <select id="userPurpose" name="userPurpose" required>
+                <option value="">请选择用途</option>
+                <option value="教学">教学</option>
+                <option value="科研">科研</option>
+                <option value="其它">其它</option>
+            </select>
+        </div>
+        <div class="download-form-group">
+            <label for="userEmail">邮箱</label>
+            <input type="email" id="userEmail" name="userEmail" placeholder="可选填写">
+        </div>
         <div class="download-modal-buttons">
             <button type="button" class="download-btn download-btn-primary" onclick="handleDownload()">确认下载</button>
             <button type="button" class="download-btn download-btn-secondary" onclick="closeModal()">取消</button>
         </div>
     </form>
 </div>
+
+### 《智慧农业概论》
+#### 配套PPT
 
 - 智慧农业概论-第一章-绪论-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第一章-绪论-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA-202210.pptx', 'chapter01')" href="javascript:void(0)">下载</a>
 - 智慧农业概论-第二章-智慧农业的支撑技术-202210 (pptx)   <a onclick="showDownloadModal('智慧农业概论-第二章-智慧农业的支撑技术-202210.pptx', 'https://wp-img.daozhao.com/zhag/%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E6%A6%82%E8%AE%BA-%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%99%BA%E6%85%A7%E5%86%9C%E4%B8%9A%E7%9A%84%E6%94%AF%E6%92%91%E6%8A%80%E6%9C%AF-202210.pptx', 'chapter02')" href="javascript:void(0)">下载</a>
