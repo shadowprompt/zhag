@@ -194,6 +194,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
             downloadRecord.set('userName', userInfo.name);
             downloadRecord.set('userOrganization', userInfo.organization);
             downloadRecord.set('userProfession', userInfo.profession);
+            downloadRecord.set('userPurpose', userInfo.purpose);
+            downloadRecord.set('userEmail', userInfo.email || '');
             downloadRecord.set('fileName', userInfo.fileName);
             downloadRecord.set('downloadTime', new Date(userInfo.downloadTime));
             downloadRecord.set('trackId', userInfo.trackId);
@@ -234,8 +236,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const nameInput = document.getElementById('userName');
         const organizationInput = document.getElementById('userOrganization');
         const professionInput = document.getElementById('userProfession');
+        const purposeInput = document.getElementById('userPurpose');
+        const emailInput = document.getElementById('userEmail');
 
-        if (!nameInput || !organizationInput || !professionInput) {
+        if (!nameInput || !organizationInput || !professionInput || !purposeInput) {
             console.error('表单元素未找到');
             alert('页面加载错误，请刷新页面重试');
             return;
@@ -244,8 +248,10 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
         const name = nameInput.value.trim();
         const organization = organizationInput.value.trim();
         const profession = professionInput.value.trim();
+        const purpose = purposeInput.value.trim();
+        const email = emailInput ? emailInput.value.trim() : '';
 
-        if (!name || !organization || !profession) {
+        if (!name || !organization || !profession || !purpose) {
             alert('请填写完整信息后再下载');
             return;
         }
@@ -259,6 +265,8 @@ if (typeof window.downloadSystemInitialized === 'undefined') {
                 name: name,
                 organization: organization,
                 profession: profession,
+                purpose: purpose,
+                email: email,
                 fileName: window.currentDownloadInfo.fileName,
                 downloadTime: new Date().toLocaleString(),
                 trackId: window.currentDownloadInfo.trackId,
