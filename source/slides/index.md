@@ -32,7 +32,6 @@ date: 2022-10-26 09:23:04
 <!-- 模态框 -->
 <div id="modalOverlay" class="download-modal-overlay"></div>
 <div id="downloadModal" class="download-modal">
-    <h3>下载信息收集</h3>
     <form id="downloadForm">
         <div class="download-form-group">
             <label for="userName">姓名 *</label>
